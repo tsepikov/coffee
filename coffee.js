@@ -1,1 +1,3 @@
-console.log(Math.random() >= 0.9 ? 'Yes, it is time!' : 'Not yet :(');
+const COFFEE_THRESHOLD = 0.9;
+
+console.log(Math.random() >= COFFEE_THRESHOLD ? 'Yes, it is time!' : 'Not yet :(');
