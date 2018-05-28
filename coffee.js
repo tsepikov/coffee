@@ -1,1 +1,5 @@
-console.log(Math.random() >= 0.9 ? 'Yes, it is time!' : 'Not yet :(');
+console.log(isItTime() ? 'Yes, it is time!' : 'Not yet :(');
+
+function isItTime() {
+  return Math.random() >= 0.9;
+}
