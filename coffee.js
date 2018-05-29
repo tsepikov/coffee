@@ -1,6 +1,7 @@
 var bruteForcePrevention = require('./bruteforceprevention');
+var coffeeAlgorithm = require('./hourbased');
 
-const COFFEE_THRESHOLD = 0.9;
+console.log('The time is', new Date().getHours() + ':' + new Date().getMinutes(), 'but is it coffee time??');
 
 bruteForcePrevention().then(main);
 
@@ -13,7 +14,7 @@ function main() {
 }
 
 function isItTime() {
-  return Math.random() >= COFFEE_THRESHOLD;
+  return coffeeAlgorithm();
 }
 
 function coffeeSuccess() {
