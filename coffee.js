@@ -1,3 +1,6 @@
+
+const COFFEE_THRESHOLD = 0.9;
+
 if(isItTime()) {
   coffeeSuccess();
 } else {
@@ -5,7 +8,7 @@ if(isItTime()) {
 }
 
 function isItTime() {
-  return Math.random() >= 0.9;
+  return Math.random() >= COFFEE_THRESHOLD;
 }
 
 function coffeeSuccess() {
