@@ -1,10 +1,15 @@
+var bruteForcePrevention = require('./bruteforceprevention');
 
 const COFFEE_THRESHOLD = 0.9;
 
-if(isItTime()) {
-  coffeeSuccess();
-} else {
-  coffeeFailure();
+bruteForcePrevention().then(main);
+
+function main() {
+  if (isItTime()) {
+    coffeeSuccess();
+  } else {
+    coffeeFailure();
+  }
 }
 
 function isItTime() {
@@ -12,7 +17,7 @@ function isItTime() {
 }
 
 function coffeeSuccess() {
-    console.log(` 
+  console.log(` 
            {
         {   }
          }_{ __{
