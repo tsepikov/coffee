@@ -1,40 +1,51 @@
-var bruteForcePrevention = require('./bruteforceprevention');
-var coffeeAlgorithm = require('./hourbased');
+var coffee = new Coffee();
+coffee.rollTheDice();
 
-console.log('The time is', new Date().getHours() + ':' + new Date().getMinutes(), 'but is it coffee time??');
+function Coffee() {
 
-bruteForcePrevention().then(main);
+	this.bruteForcePrevention = require('./bruteforceprevention');
+	this.coffeeAlgorithm = require('./hourbased');
+	this.coffeeType = require('./coffeeTypeSelector');
+	
+	Coffee.prototype.rollTheDice = function() {
+		console.log('The time is', new Date().getHours() + ':' + new Date().getMinutes(), 'but is it coffee time??');
 
-function main() {
-  if (isItTime()) {
-    coffeeSuccess();
-  } else {
-    coffeeFailure();
-  }
-}
+		this.bruteForcePrevention().then(this.main);
+	}
+	
+	Coffee.prototype.main = function() {
+	  if (coffee.isItTime()) {
+		coffee.coffeeSuccess();
+		coffee.coffeeType();
+	  } else {
+		coffee.coffeeFailure();
+	  }	  
+	}
 
-function isItTime() {
-  return coffeeAlgorithm();
-}
+	Coffee.prototype.isItTime = function() {
+	  return this.coffeeAlgorithm();
+	}
 
-function coffeeSuccess() {
-  console.log(` 
-           {
-        {   }
-         }_{ __{
-      .-{   }   }-.
-     (   }     {   )
-     |\`-.._____..-'|
-     |             ;--.
-     |            (__  \\
-     |             | )  )
-     |             |/  /
-     |             /  /
-     |            (  /
-     \\             y'
-      \`-.._____..-'`);
-}
+	Coffee.prototype.coffeeSuccess = function() {
+	  console.log(` 
+			   {
+			{   }
+			 }_{ __{
+		  .-{   }   }-.
+		 (   }     {   )
+		 |\`-.._____..-'|
+		 |             ;--.
+		 |            (__  \\
+		 |             | )  )
+		 |             |/  /
+		 |             /  /
+		 |            (  /
+		 \\             y'
+		  \`-.._____..-'`);
+	}
 
-function coffeeFailure() {
-  console.log('Not yet :(');
+	Coffee.prototype.coffeeFailure = function() {
+	  console.log('Not yet :(');
+	}
+
 }
